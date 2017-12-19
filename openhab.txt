@@ -1,0 +1,39 @@
+
+# System aktualisieren
+sudo apt-get update
+sudo apt-get upgrade
+# Namen und ein paar Einstellungen
+sudo raspi-config
+# neue Firmware
+sudo apt-get dist-uprade
+# neues update Prog. installieren
+sudo apt-get install rpi-update
+# neueste Treiber installieren
+sudo rpi-update
+# Reboot
+sudo reboot now
+# Java 1.8 installieren, wenn nicht schon vorhanden
+sudo apt-get update && sudo apt-get install oracle-java8-jdk
+ 
+# so, jetzt die eigentliche OpenHAB 2 Installation
+# zuerst den Openhab Key ergänzen
+wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=openhab' | sudo apt-key add -
+# das Repo ergänzen
+echo 'deb http://dl.bintray.com/openhab/apt-repo2 stable main' | sudo tee /etc/apt/sources.list.d/openhab2.list
+# nun wieder alles updaten, da ein neues Repo ergänzt wurde
+sudo apt-get update
+# OpenHAB 2 installieren
+sudo apt-get install openhab2
+# OpenHAB autom. bei Systemstart starten
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable openhab2.service
+# und OpenHAB 2.0 starten
+sudo /bin/systemctl start openhab2.service
+# der Start hat ein paar Minuten gedauert, deshalb mal den Status ausgeben
+sudo systemctl status openhab2.service
+# wenn ein Restart nötig ist, dann 
+sudo systemctl restart openhab2.service
+
+
+
+http://(raspberry-pi-adresse):8080
