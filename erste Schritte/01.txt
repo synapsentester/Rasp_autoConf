@@ -1,0 +1,3 @@
+NAME
+
+raspi-config nonint do_hostname 
