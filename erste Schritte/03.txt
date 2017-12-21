@@ -1,5 +1,0 @@
-sudo apt-get in rpi-update -y
-
-sudo apt-get install rpi-update -y
-
-sudo reboot now
