@@ -1,3 +1,7 @@
-NAME
+#PW wechsel
+sudo passwd -d pi
+echo -e "**yourPW**\n**yourPW**" | passwd pi
 
+#NAME
 raspi-config nonint do_hostname NAME_DES RASP
+
