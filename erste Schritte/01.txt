@@ -5,3 +5,11 @@ echo -e "**yourPW**\n**yourPW**" | passwd pi
 #NAME
 raspi-config nonint do_hostname NAME_DES RASP
 
+#update und upgraden
+sudo apt-get in rpi-update -y
+sudo apt-get install rpi-update -y
+
+#statische IP einrichten
+echo -e "interface wlan0 \nstatic ip_address=192.168.0.100" | sudo tee -a /etc/dhcpcd.conf
+
+sudo reboot now
